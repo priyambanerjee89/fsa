@@ -56,6 +56,7 @@ class FiniteStateMachine {
 
       currentState = this.transitionFunction.get(currentState)?.get(char)!;
     }
+
     if (!this.finalStates.has(currentState)) {
       throw new Error(
         `The state '${currentState}' is not in the list of final states.`
