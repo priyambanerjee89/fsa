@@ -1,3 +1,1 @@
-export const isBinary = (input: string): boolean => {
-  return /^[01]+$/.test(input);
-};
+export const isBinary = (input: string): boolean => /^[01]+$/.test(input);

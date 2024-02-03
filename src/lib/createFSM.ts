@@ -1,24 +1,22 @@
-import FiniteAutomaton from "./FiniteAutomation";
 import { FiniteStateMachineConfig } from "../interface/FiniteStateMachineConfig";
+import FiniteStateMachine from "./FiniteStateMachine";
 
-function createFSM({
-  states,
-  alphabet,
-  initialState,
-  finalStates,
-  transitions,
-}: FiniteStateMachineConfig): (input: string) => string {
-  const FSM = new FiniteAutomaton(
+function createFSM(
+  config: FiniteStateMachineConfig
+): (input: string) => string {
+  const { states, alphabet, initialState, finalStates, transitions } = config;
+
+  const FSM = new FiniteStateMachine(
     states,
     alphabet,
     initialState,
-    finalStates,
-    new Map()
+    finalStates
   );
+
   transitions.forEach(([currentState, symbol, nextState]) => {
     FSM.setTransitionFunction(currentState, symbol, nextState);
   });
-  console.log(FSM);
+
   return (input: string) => FSM.execute(input);
 }
 

@@ -1,6 +1,6 @@
 import { isBinary } from "../helpers";
 
-class FiniteAutomaton {
+class FiniteStateMachine {
   private states: Set<string>;
   private alphabet: Set<string>;
   private initialState: string;
@@ -11,14 +11,13 @@ class FiniteAutomaton {
     states: string[],
     alphabet: string[],
     initialState: string,
-    finalStates: string[],
-    transitionFunction: Map<string, Map<string, string>>
+    finalStates: string[]
   ) {
     this.states = new Set(states);
     this.alphabet = new Set(alphabet);
     this.initialState = initialState;
     this.finalStates = new Set(finalStates);
-    this.transitionFunction = new Map(transitionFunction);
+    this.transitionFunction = new Map();
   }
 
   public setTransitionFunction(
@@ -66,4 +65,4 @@ class FiniteAutomaton {
   }
 }
 
-export default FiniteAutomaton;
+export default FiniteStateMachine;
