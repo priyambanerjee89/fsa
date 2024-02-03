@@ -113,4 +113,25 @@ describe("createFSM", () => {
       modFourError("1101");
     }).toThrow("The state 'S1' is not in the list of final states.");
   });
+
+  it("should set the transition function correctly", () => {
+    const modFourMissingTransitions = createFSM({
+      states: ["S0", "S1", "S2", "S3"],
+      alphabet: ["0", "1"],
+      initialState: "S0",
+      finalStates: ["S0", "S1", "S2", "S3"],
+      transitions: [
+        ["S0", "0", "S0"],
+        ["S1", "1", "S3"],
+        ["S2", "0", "S0"],
+        ["S3", "0", "S2"],
+      ],
+    });
+
+    expect(() => {
+      modFourMissingTransitions("1101");
+    }).toThrow(
+      "The transition function was not set correctly. Check that you have transitions for every symbol in the alphabet."
+    );
+  });
 });

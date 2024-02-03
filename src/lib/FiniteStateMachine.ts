@@ -57,6 +57,12 @@ class FiniteStateMachine {
       currentState = this.transitionFunction.get(currentState)?.get(char)!;
     }
 
+    if (!currentState || currentState === "undefined") {
+      throw new Error(
+        `The transition function was not set correctly. Check that you have transitions for every symbol in the alphabet.`
+      );
+    }
+
     if (!this.finalStates.has(currentState)) {
       throw new Error(
         `The state '${currentState}' is not in the list of final states.`
