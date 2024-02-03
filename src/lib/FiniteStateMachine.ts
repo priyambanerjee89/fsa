@@ -38,7 +38,6 @@ class FiniteStateMachine {
       );
     }
 
-    // check if state is in the set of states
     if (!this.states.has(this.initialState)) {
       throw new Error(
         `The intial state '${this.initialState}' is not in the set of states.`
