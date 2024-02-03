@@ -51,7 +51,7 @@ const result = modThree("1100");
 
 ## Rebuild
 
-App has to rebuit if changes are made in **`index.ts`** or **`createFSM.test`**
+Rebuild app if changes are made in **`index.ts`** or **`createFSM.test`**
 
 To rebuild: `npm run build`
 
