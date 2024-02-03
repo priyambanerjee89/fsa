@@ -1,0 +1,25 @@
+{
+  "name": "fsa",
+  "version": "1.0.0",
+  "description": "Module that generates FSM",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest build/test",
+    "build": "tsc",
+    "start": "node build/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "fsa"
+  },
+  "keywords": [
+    "fsm"
+  ],
+  "author": "Priyam Banerjee",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/jest": "^29.5.12",
+    "jest": "^29.7.0",
+    "typescript": "^5.3.3"
+  }
+}
